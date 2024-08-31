@@ -105,11 +105,16 @@ The project structure is as follows:
 4. If the protocol no. is not in the protocol_mapping constants (IANA list based) then it will assigned the name "Unknown Protocol".
 5. The input file path and the output directory path should be valid or else the program will return an error.
 6. Please check the default values of each cli argument before execution.
+7. The field names mentioned in the cli arg --fields should be correct as the VPCFlowLog Class or AWS the VPC Flow Log Documentation. If there is any deviation from the defined field name then the program would return an error.
+8. Two output files would be stored in the given output folder under the name <TIMESTAMP>_output1.csv and <TIMESTAMP>_output2.csv
+9. The lookup mapping table should be in the same format as given in teh static/mappings/lookup_mapping_table.csv.
+10. The logs for which there is no mapping found are tagged under "Untagged" category.
 
 ## Test Cases
 | Test Cases | Details |
 |----------|----------|
-| No. of fields in the --fields cli arg and the no. of fields in the --input_file_path log's line should match | The test cases validates whether the no. of fields in the input file and the input format as same or not. The failure case for this can be tested using sample4-failure.log |
-| The data type of all the fields in the log file should match the VPCFlowLog format | The test cases validates whether the values of the integer fields is digit or not. The failure scenario for this test cases can be tested using sample3-failure.log |
-| Protocol number without any name mapping is set to "Unknown Protocol" | The test cases validates whether a invalid protocol no. is set to the name "Unknown protocol". This scenario can be tested using the sample5.log |
-| The input file path and the output directory path is valid | The test cases validates whether the input file path and output directory path is valid. It returns an error if atleast one of the condition is not met  |
+| No. of fields in the --fields cli arg and the no. of fields in the --input_file_path log's line should match | The test case validates whether the no. of fields in the input file and the input format as same or not. The failure case for this can be tested using sample4-failure.log |
+| The data type of all the fields in the log file should match the VPCFlowLog format | The test case validates whether the values of the integer fields is digit or not. The failure scenario for this test cases can be tested using sample3-failure.log |
+| Protocol number without any name mapping is set to "Unknown Protocol" | The test case validates whether a invalid protocol no. is set to the name "Unknown protocol". This scenario can be tested using the sample5.log |
+| The input file path and the output directory path is valid | The test case validates whether the input file path and output directory path is valid. It returns an error if atleast one of the condition is not met  |
+| The given field names in the --fields cli arg are valid  | The test case validates whether the values in the cli arg --fields are valid as per the AWS VPC Flow Log documention|
