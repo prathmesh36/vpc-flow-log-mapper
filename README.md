@@ -51,6 +51,11 @@ The project structure is as follows:
   - **`services/`**: A services submodule directory contains the service layer code which interacts with various utility function to provide service to end user.
   - **`constant/`**: A constants submodule directory contains the protocol name-number mapping given [here](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 
+- **`static/`**: The source code for the project.
+  - **`inputs/`**: This directory contains various sample vpc flow log files to test. This directory contains the default sample vpc-flow-log-file. You can add your sample files here or use any other directory by mentioning in the command line argument.
+  - **`outputs/`**: This directory is the default output directory. You can use some other directory by specifying in the command line argument
+  - **`mapping/`**: The main entry point for the cli application which accepts the cli arguments.
+
 - **`README.md`**: Provides documentation and information about the project.
 
 - **`.gitignore`**: Specifies files and directories to be ignored by Git.
@@ -63,6 +68,6 @@ The project structure is as follows:
 
 | Command Line Argument | Required/Optional | Default Value | Details |
 |----------|----------|----------|----------|
-| --input-file-path | Required | - | This argument asks for the input file path |
-| --output-dir-path | Required | - | This argument asks for the output directory path |
+| --input-file-path | Optional | static/inputs/sample1.log | This argument asks for the input file path |
+| --output-dir-path | Optional | static/outputs/ | This argument asks for the output directory path |
 | --fields | Optional | version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status | The argument asks for the fields in your vpc flow log file in the same order |

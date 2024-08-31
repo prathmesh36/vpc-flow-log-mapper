@@ -15,6 +15,7 @@ def map_vpc_flow_logs(fields_str: str, input_file_path: str, output_dir_path: st
             output_file2_name = f'{timestamp}_output2.csv'
             write_dict_to_csv(output_dir_path + output_file1_name, output_tag_count, ["Tag", "Count"])
             write_dict_to_csv(output_dir_path + output_file2_name, output_port_protocol_comb_count, ["Port", "Protocol", "Count"])
+            print("Output files " + output_file1_name + ", "  + output_file2_name + " generated at " + output_dir_path)
         else:
             print(validation_result[1])
     except Exception as e:
