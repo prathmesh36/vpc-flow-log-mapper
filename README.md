@@ -58,3 +58,11 @@ The project structure is as follows:
 - **`setup.py`**: Specifies project packaging details.
 
 - **`vpc_flow_log_mapper.py`**: The file responsible for starting the project.
+
+## Command Line Arguments
+
+| Command Line Argument | Required/Optional | Default Value | Details |
+|----------|----------|----------|----------|
+| --input-file-path | Required | - | This argument asks for the input file path |
+| --output-dir-path | Required | - | This argument asks for the output directory path |
+| --fields | Optional | version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status | The argument asks for the fields in your vpc flow log file in the same order |
