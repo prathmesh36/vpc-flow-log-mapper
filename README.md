@@ -1,5 +1,5 @@
 # vpc-flow-log-mapper
- CLI application for mapping vpc flow logs. This project can be as a python package acting as a global cli application named vpc-flow-log-mapper on your command line.
+ CLI application for mapping vpc flow logs. This project can be used as a python package acting as a global cli application named vpc-flow-log-mapper on your command line.
 
 ## How to run the project?
 ```bash
