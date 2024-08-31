@@ -6,7 +6,7 @@
 python vpc_flow_log_mapper.py
 ```
 
-  ### Specify custom input file path, output directory path
+  ### Specify custom input file path, output directory path and custom vpc-flow-log fields
   ```bash
   python vpc_flow_log_mapper.py --input-file-path=static/inputs/sample2.log --output-dir-path=static/outputs/ --fields="dstport protocol packets bytes start end action log-status"
   ```
