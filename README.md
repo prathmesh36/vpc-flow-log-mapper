@@ -41,8 +41,17 @@ python -m venv venv
 
 4. Run the cli application
 ```bash
-vpc-flow-log-mapper --input-file-path=static/inputs/sample1.log --output-dir-path=static/outputs/ 
+vpc-flow-log-mapper
 ```
+
+```bash
+vpc-flow-log-mapper --input-file-path=static/inputs/sample2.log --output-dir-path=static/outputs/ --fields="dstport protocol packets bytes start end action log-status"
+```
+
+```bash
+vpc-flow-log-mapper --input-file-path=static/inputs/sample1.log --output-dir-path=static/outputs/ --fields="version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status"
+```
+
 
 
 ## Project Structure
