@@ -2,11 +2,14 @@
  CLI application for mapping vpc flow logs
 
 ## How to run the project?
-There are two ways to run the project:
-1. Run the python file directly. 
 ```bash
-python vpc_flow_log_mapper.py --input-file-path=static/inputs/sample1.log --output-dir-path=static/outputs/
+python vpc_flow_log_mapper.py
 ```
+
+  ### Specify custom input file path, output directory path
+  ```bash
+  python vpc_flow_log_mapper.py --input-file-path=static/inputs/sample2.log --output-dir-path=static/outputs/ --fields="dstport protocol packets bytes start end action log-status"
+  ```
 
 ## How to run the project as a python package?
 
