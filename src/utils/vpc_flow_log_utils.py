@@ -23,8 +23,11 @@ def map_vpc_flow_log_line(log_line: str, field_format: Tuple[str], delimiter: st
             log_data = {field: value for field, value in zip(field_format, log_values)}
             int_fields = get_int_fields(VPCFlowLog)
             for field in int_fields:
-                if field in log_data and log_data[field].isdigit():
-                    log_data[field] = int(log_data[field])
+                if field in log_data:
+                    if log_data[field].isdigit():
+                        log_data[field] = int(log_data[field])
+                    else:
+                        raise Exception("Datatype error - " + field + " is not an int type.") 
             log_data_hypen_handled = handle_hypen_data(log_data)
             return VPCFlowLog(**log_data_hypen_handled)
         else:

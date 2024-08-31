@@ -97,3 +97,19 @@ The project structure is as follows:
 | --input-file-path | Optional | static/inputs/sample1.log | This argument asks for the input file path |
 | --output-dir-path | Optional | static/outputs/ | This argument asks for the output directory path |
 | --fields | Optional | version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status | The argument asks for the fields in your vpc flow log file in the same order |
+
+## Assumptions
+1. The input would be a plain text (ascii) log file path which follows the convention and format of the vpc flow log files.
+2. Even though there is a validation whether the no. of fields in a log line and the no. of fields mentioned as command line argument are equal or not, the order should be same in both places.
+3. The VPCFlowLog class has some fields with datatype as integer. The fields should be strictly integer or else the program will return an error.
+4. If the protocol no. is not in the protocol_mapping constants (IANA list based) then it will assigned the name "Unknown Protocol".
+5. The input file path and the output directory path should be valid or else the program will return an error.
+6. Please check the default values of each cli argument before execution.
+
+## Test Cases
+| Test Cases | Details |
+|----------|----------|
+| No. of fields in the --fields cli arg and the no. of fields in the --input_file_path log's line should match | The test cases validates whether the no. of fields in the input file and the input format as same or not. The failure case for this can be tested using sample4-failure.log |
+| The data type of all the fields in the log file should match the VPCFlowLog format | The test cases validates whether the values of the integer fields is digit or not. The failure scenario for this test cases can be tested using sample3-failure.log |
+| Protocol number without any name mapping is set to "Unknown Protocol" | The test cases validates whether a invalid protocol no. is set to the name "Unknown protocol". This scenario can be tested using the sample5.log |
+| The input file path and the output directory path is valid | The test cases validates whether the input file path and output directory path is valid. It returns an error if atleast one of the condition is not met  |
