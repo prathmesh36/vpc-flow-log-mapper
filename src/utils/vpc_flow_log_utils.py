@@ -81,7 +81,7 @@ def create_tag_mapper(data: List[dict]) -> dict:
     try:
         mapper = {}
         for record in data:
-            mapper[(record["dstport"], record["protocol"])] = record["tag"]
+            mapper[(record["dstport"].strip().lower(), record["protocol"].strip().lower())] = record["tag"].strip().lower()
         return mapper
     except Exception as e:
         print("Creating lookup table dictionary failed for the following reason: " + str(e))
@@ -91,8 +91,8 @@ def generate_output_data(tag_mapping: dict, logs: List[VPCFlowLog]):
     output_tag_count = defaultdict(int)
     output_port_protocol_comb_count = defaultdict(int)
     for log in logs:
-        tag = tag_mapping.get((str(log.dstport), get_protocol_name(log.protocol)))
-        output_port_protocol_comb_count[(str(log.dstport), get_protocol_name(log.protocol))] += 1
+        tag = tag_mapping.get((str(log.dstport).lower(), get_protocol_name(log.protocol)))
+        output_port_protocol_comb_count[(str(log.dstport).lower(), get_protocol_name(log.protocol))] += 1
         if tag:
             output_tag_count[tag] += 1
         else:
